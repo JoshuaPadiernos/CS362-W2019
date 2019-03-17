@@ -51,6 +51,12 @@ randomtestcard2.out: randomtestcard2.c dominion.o rngs.o
 	./randomtestcard2.bin >> randomtestcard2.out
 	gcov dominion.o -f -b >> randomtestcard2.out
 
+unittest1.out: unittest1.c dominion.o rngs.o
+	echo "Results for randomtest1.c:" > unittest1.out
+	gcc -o unittest1.bin dominion.o rngs.o unittest1.c $(CFLAGS)
+	./unittest1.bin >> unittest1.out
+	gcov dominion.o -f -b >> unittest1.out
+
 all: playdom player 
 
 clean:
